@@ -2,5 +2,17 @@
   "workbench.colorCustomizations": {
     "titleBar.activeBackground": "#FF2C70",
     "titleBar.inactiveBackground": "#FF2C70CC"
-  }
+  },
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "quickman_dev",
+      "database": "quickman_dev",
+      "username": "quickman_user",
+      "password": "quickman_user"
+    }
+  ]
 }

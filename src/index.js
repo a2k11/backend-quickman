@@ -1,22 +1,16 @@
-const { PrismaClient } = require('@prisma/client')
+require('dotenv').config()
+const createServer = require('./createServer');
+const prisma = require('./prisma');
 
-const prisma = new PrismaClient()
+const server = createServer;
 
-async function main() {
-  await prisma.user.create({
-    data: {
-      name: 'Adam',
-      email: 'adam.kaewell@gmail.com',
-    },
-  })
-  const allUsers = await prisma.user.findMany({})
-  console.dir(allUsers, { depth: null })
-}
+// todo express middleware cookies, current_user, jwt
 
-main()
-  .catch(e => {
-    throw e
-  })
-  .finally(async () => {
-    await prisma.$disconnect()
-  })
+server.start({
+  cors: {
+    credentials: true,
+    origin: process.env.FRONTEND_URL,
+  },
+}, data => {
+  console.log(`server is running on port http://localhost:${data.port}`);
+})
