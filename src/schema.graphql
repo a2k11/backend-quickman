@@ -4,10 +4,14 @@ type User {
   email: String!
 }
 
+type Dog {
+  name: String!
+}
+
 type Query {
-  hello: String
+  dogs: [Dog]!
 }
 
 type Mutation {
-  hi: String
+  createDog(name: String!): Dog
 }
