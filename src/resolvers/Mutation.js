@@ -1,5 +1,5 @@
 const Mutations = {
-  createDog(parent, args, ctx, info) {
+  createItem(parent, args, ctx, info) {
     global.dogs = global.dogs || [];
 
     const newDog = { name: args.name };
