@@ -1,10 +1,13 @@
 const Mutations = {
-  createItem(parent, args, ctx, info) {
-    global.dogs = global.dogs || [];
+  async createItem(parent, args, ctx, info) {
 
-    const newDog = { name: args.name };
-    global.dogs.push(newDog);
-    return newDog;
+    const item = await ctx.prisma.post.createItem({
+      data: {
+        ...args
+      }
+    }, info);
+
+    return item;
   }
 
 };
