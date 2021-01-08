@@ -24,6 +24,6 @@ model Item {
   image       String
   largeImage  String
   price       Int
-  createdAt   DateTime
-  updatedAt   DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
